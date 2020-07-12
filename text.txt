@@ -1,0 +1,3 @@
+https://github.com/RomanovSci/no-framework-tutorial-ru
+https://habr.com/ru/company/mailru/blog/352122/
+https://packagist.org/packages/lexusalex/php-compact
