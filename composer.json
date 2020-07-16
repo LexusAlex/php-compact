@@ -14,7 +14,7 @@
     }
   ],
   "require": {
-
+    "ramsey/uuid": "^4.0"
   },
   "require-dev": {
 
