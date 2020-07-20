@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace App\Modules\Authentications\Command\JoinByEmail\Request;
 
 use App\Modules\Authentications\Entity\User\Email;
-use App\Auth\Entity\User\Id;
-use App\Auth\Entity\User\User;
+use App\Modules\Authentications\Entity\User\Id;
+use App\Modules\Authentications\Entity\User\User;
 use App\Modules\Authentications\Entity\User\UserRepository;
-use App\Auth\Service\JoinConfirmationSender;
-use App\Auth\Service\PasswordHasher;
-use App\Auth\Service\Tokenizer;
-use App\Flusher;
+use App\Modules\Authentications\Service\PasswordHasher;
+use App\Modules\Authentications\Service\Tokenizer;
 use DateTimeImmutable;
 use DomainException;
 
@@ -20,21 +18,15 @@ class Handler
     private UserRepository $users;
     private PasswordHasher $hasher;
     private Tokenizer $tokenizer;
-    private Flusher $flusher;
-    private JoinConfirmationSender $sender;
 
     public function __construct(
         UserRepository $users,
         PasswordHasher $hasher,
-        Tokenizer $tokenizer,
-        Flusher $flusher,
-        JoinConfirmationSender $sender
+        Tokenizer $tokenizer
     ) {
         $this->users = $users;
         $this->hasher = $hasher;
         $this->tokenizer = $tokenizer;
-        $this->flusher = $flusher;
-        $this->sender = $sender;
     }
 
     public function handle(Command $command): void
@@ -56,9 +48,5 @@ class Handler
         );
 
         $this->users->add($user);
-
-        $this->flusher->flush();
-
-        $this->sender->send($email, $token);
     }
 }

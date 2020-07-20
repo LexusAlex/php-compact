@@ -4,18 +4,14 @@ declare(strict_types=1);
 
 namespace App\Modules\Authentications\Entity\User;
 
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\EntityRepository;
 use DomainException;
 
 class UserRepository
 {
-    private EntityManagerInterface $em;
-    private EntityRepository $repo;
+    private  $repo;
 
-    public function __construct(EntityManagerInterface $em, EntityRepository $repo)
+    public function __construct(EntityRepository $repo)
     {
-        $this->em = $em;
         $this->repo = $repo;
     }
 
