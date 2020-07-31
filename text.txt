@@ -3,3 +3,9 @@ https://habr.com/ru/company/mailru/blog/352122/
 https://packagist.org/packages/lexusalex/php-compact
 
 docker-compose run --rm php-cli composer require ramsey/uuid
+docker-compose run --rm php-cli composer outdated - полный список тех пакетов которые появились в новой версии
+docker-compose run --rm php-cli composer outdated --direct
+docker-compose run --rm php-cli composer update slim/slim --with-dependencies обновление с зависимостями
+docker-compose run --rm php-cli composer update --with-dependencies symfony/* обновление с зависимостями
+docker-compose run --rm php-cli composer remove --dev phpunit/phpunit удаление лишнего
+docker-compose run --rm php-cli php public/index.php var2 var3
