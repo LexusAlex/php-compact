@@ -1,55 +1,38 @@
 version: "3.7"
 services:
-
+    php-cli:
+        build:
+            context: ./docker/php-cli
+            dockerfile: Dockerfile
+        volumes:
+            - ./:/php-compact
     nginx:
         build:
-            context: docker
-            dockerfile: nginx/Dockerfile
+            context: ./docker/nginx
+            dockerfile: Dockerfile
         ports:
             - "80:80"
         volumes:
-            - ./:/app
+            - ./:/php-compact
         depends_on:
             - php-fpm
-
     php-fpm:
         build:
-            context: docker
-            dockerfile: php-fpm/Dockerfile
+            context: ./docker/php-fpm
+            dockerfile: Dockerfile
         environment:
-            APP_ENV: dev
-            PHINX_DB_HOST: mariadb
-            PHINX_DB_USER: root
-            PHINX_DB_PASSWORD: test
-            PHINX_DB_NAME: test
-            PHINX_DB_PORT: 3306
+            PHP_COMPACT_ENV: dev
         volumes:
-            - ./:/app
-
-    php-cli:
-        build:
-            context: docker
-            dockerfile: php-cli/Dockerfile
-        environment:
-            APP_ENV: dev
-            PHINX_DB_HOST: mariadb
-            PHINX_DB_USER: root
-            PHINX_DB_PASSWORD: test
-            PHINX_DB_NAME: test
-            PHINX_DB_PORT: 3306
-        volumes:
-            - ./:/app
-
+            - ./:/php-compact
     mariadb:
         image: mariadb:10.5
         environment:
-            MYSQL_ROOT_PASSWORD: test
-            MYSQL_DATABASE: test
+            MYSQL_ROOT_PASSWORD: php-compact
+            MYSQL_DATABASE: php-compact
         volumes:
             - mariadb:/var/lib/mysql
             - ./docker/mariadb/conf.d/:/etc/mysql/conf.d/
         ports:
             - "3306:3306"
-
 volumes:
     mariadb:

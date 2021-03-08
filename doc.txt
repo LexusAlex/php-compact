@@ -1,0 +1,10 @@
+Пишем api на php
+
+docker-compose run --rm php-cli composer require phpunit/phpunit --dev
+
+composer require phpstan/phpstan
+composer require squizlabs/php_codesniffer
+composer require infection/infection
+composer require nunomaduro/phpinsights
+composer require phpmd/phpmd
+composer require phpunit/phpunit --dev
