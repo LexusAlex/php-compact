@@ -9,7 +9,7 @@ use Laminas\ConfigAggregator\PhpFileProvider;
 $builder = new ContainerBuilder();
 
 $aggregator = new ConfigAggregator([
-    new PhpFileProvider(__DIR__ . '/../config/main/*.php'),
+    new PhpFileProvider(__DIR__ . '/../main/*.php'),
     //new PhpFileProvider(__DIR__ . '/' . (getenv('PHP_COMPACT_ENV') ?: 'prod') . '/*.php'),
 ]);
 
