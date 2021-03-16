@@ -1,3 +1,6 @@
+linter: lint cs
+static: psalm php-stan
+
 build:
 	docker-compose build
 pull:
@@ -16,3 +19,13 @@ remove-all-system:
 	docker system prune -a
 test:
 	docker-compose run --rm php-cli composer test
+lint:
+	docker-compose run --rm php-cli composer phplint
+cs:
+	docker-compose run --rm php-cli composer cs-check
+cs-fix:
+	docker-compose run --rm php-cli composer cs-fixed
+psalm:
+	docker-compose run --rm php-cli composer psalm
+php-stan:
+	docker-compose run --rm php-cli composer phpstan

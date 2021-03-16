@@ -12,15 +12,18 @@ use Symfony\Component\Console\Application;
 $container = require __DIR__ . '/../config/app/container.php';
 
 $application = new Application('Cli');
-
+/**
+ * @var string[] $commands
+ * @psalm-suppress MixedArrayAccess
+ */
 $commands = $container->get('configurations')['cli']['commands'];
 
 foreach ($commands as $command) {
+    /** @psalm-suppress MixedArgument */
     $application->add($container->get($command));
 }
 
 try {
     $application->run();
 } catch (Exception $e) {
-
 }

@@ -12,13 +12,28 @@ return [
          * @psalm-suppress MixedArgument
          */
         $configuration = $container->get('configurations')['mariadb'];
-        $dsn = $configuration['driver'] . ':dbname=' . $configuration['dbname'] . ';host=' . $configuration['host']  .
-        ';port=' . $configuration['port'];
+        /**
+         * @psalm-suppress MixedArrayAccess
+         * @psalm-var array{
+         *     driver:string,
+         *     dbname:string,
+         *     host:string,
+         *     port:string,
+         *     user:string,
+         *     password:string,
+         *     constants:array
+         * } $configuration
+         */
+        $dsn = $configuration['driver'] .
+               ':dbname=' . $configuration['dbname'] .
+               ';host=' . $configuration['host']  .
+               ';port=' . $configuration['port'];
+        /** @psalm-suppress MixedArgument */
         return new PDO(
             $dsn,
             $configuration['user'],
             $configuration['password'],
-            $configuration['constants']
+            $configuration['constants'],
         );
     },
     'configurations' => [

@@ -11,7 +11,7 @@ http_response_code(500);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$dotenv = Dotenv::createUnsafeImmutable(__DIR__. '/../');
+$dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/../');
 $dotenv->load();
 
 

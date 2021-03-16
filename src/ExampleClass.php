@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace lexusalex\package;
 
-class ExampleClass {
+class ExampleClass
+{
 
     public function exampleMethod(): string
     {

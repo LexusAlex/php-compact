@@ -1,6 +1,25 @@
 Пишем api на php
 
+UI
+Application
+Domain (UseCase)
+
+request
+    -> App router container
+        -> Controller
+            -> service
+                -> User
+
+Проверка мажорных версий
+docker-compose run --rm php-cli composer outdated --direct
+
+
 docker-compose run --rm php-cli composer require phpunit/phpunit --dev
+docker-compose run --rm php-cli composer require --dev roave/security-advisories:dev-latest
+docker-compose run --rm php-cli composer require php-di/php-di
+docker-compose run --rm php-cli composer require vlucas/phpdotenv
+docker-compose run --rm php-cli composer require laminas/laminas-config-aggregator
+docker-compose run --rm php-cli composer require symfony/console
 
 composer require phpstan/phpstan
 composer require squizlabs/php_codesniffer
@@ -8,3 +27,20 @@ composer require infection/infection
 composer require nunomaduro/phpinsights
 composer require phpmd/phpmd
 composer require phpunit/phpunit --dev
+
+
+composer require slim/slim
+docker-compose run --rm php-cli composer require slim/psr7
+docker-compose run --rm --user="root" php-cli composer require filp/whoops
+
+Отключить интерактивный режим
+ --no-interaction  Do not ask any interactive question
+
+Линтеры и тесты
+
+docker-compose run --rm php-cli composer require overtrue/phplint --dev
+docker-compose run --rm php-cli composer require squizlabs/php_codesniffer --dev
+docker-compose run --rm php-cli composer require vimeo/psalm --dev
+docker-compose run --rm php-cli composer require psalm/plugin-phpunit --dev
+docker-compose run --rm php-cli composer require lctrs/psalm-psr-container-plugin --dev
+docker-compose run --rm php-cli composer require --dev phpstan/phpstan
