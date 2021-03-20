@@ -1,0 +1,7 @@
+---
+-   name: Provision Site
+    hosts: web
+    remote_user: root
+    gather_facts: yes
+    roles:
+        - update
