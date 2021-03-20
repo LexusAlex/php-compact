@@ -12,6 +12,7 @@ request
 
 Проверка мажорных версий
 docker-compose run --rm php-cli composer outdated --direct
+docker-compose run --rm frontend-node-cli yarn outdated
 
 
 docker-compose run --rm php-cli composer require phpunit/phpunit --dev
@@ -50,3 +51,8 @@ docker-compose run --rm node-cli yarn build
 docker-compose run --rm node-cli react-scripts build
 
 docker-compose up --build -d
+
+Добавление ssh
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@0.0.0.0
+
+https://github.com/melorbany/lemp-ansible/tree/master/roles

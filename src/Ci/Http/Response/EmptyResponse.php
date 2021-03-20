@@ -11,10 +11,11 @@ class EmptyResponse extends Response
 {
     public function __construct(int $status = 204)
     {
+        $resource = fopen('php://temp', 'rb');
         parent::__construct(
             $status,
             null,
-            (new StreamFactory())->createStreamFromResource(fopen('php://temp', 'rb'))
+            (new StreamFactory())->createStreamFromResource($resource)
         );
     }
 }

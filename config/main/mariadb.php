@@ -8,6 +8,7 @@ return [
     PDO::class => static function (ContainerInterface $container) {
         /**
          * @var array $configuration
+         * @param array<string> $configuration
          * @psalm-suppress MixedArrayAccess
          * @psalm-suppress MixedArgument
          */
