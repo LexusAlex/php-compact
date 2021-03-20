@@ -7,6 +7,8 @@ pull:
 	docker-compose pull
 build-pull:
 	docker-compose build --pull
+up-build:
+	docker-compose up --build -d
 up:
 	docker-compose up -d
 down:
@@ -29,3 +31,7 @@ psalm:
 	docker-compose run --rm php-cli composer psalm
 php-stan:
 	docker-compose run --rm php-cli composer phpstan
+frontend-install:
+	docker-compose run --rm node-cli yarn install
+frontend-build:
+	docker-compose run --rm node-cli yarn build

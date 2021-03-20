@@ -44,3 +44,9 @@ docker-compose run --rm php-cli composer require vimeo/psalm --dev
 docker-compose run --rm php-cli composer require psalm/plugin-phpunit --dev
 docker-compose run --rm php-cli composer require lctrs/psalm-psr-container-plugin --dev
 docker-compose run --rm php-cli composer require --dev phpstan/phpstan
+
+docker-compose run --rm node-cli npm install -g npm@7.6.3 && npx create-react-app frontend
+docker-compose run --rm node-cli yarn build
+docker-compose run --rm node-cli react-scripts build
+
+docker-compose up --build -d

@@ -34,5 +34,27 @@ services:
             - ./docker/mariadb/conf.d/:/etc/mysql/conf.d/
         ports:
             - "3306:3306"
+    frontend-nginx:
+        build:
+            context: docker/frontend-nginx
+            dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
+        depends_on:
+            - frontend-node
+    frontend-node:
+        build:
+            context: ./docker/nodejs
+            dockerfile: Dockerfile
+        volumes:
+            - ./frontend:/php-compact
+        command: yarn start
+        tty: true
+    frontend-node-cli:
+        build:
+            context: ./docker/nodejs
+            dockerfile: Dockerfile
+        volumes:
+            - ./frontend:/php-compact
 volumes:
     mariadb:
