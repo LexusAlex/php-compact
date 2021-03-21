@@ -4,4 +4,6 @@
     remote_user: root
     gather_facts: yes
     roles:
-        - update
+        #- update
+        #- nginx
+        - php
