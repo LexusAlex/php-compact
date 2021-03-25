@@ -9,7 +9,11 @@ use Slim\Psr7\Response;
 
 class HtmlResponse extends Response
 {
-    public function __construct($data ,int $status = 200)
+    /**
+     * @param string $data
+     * @param int $status
+     */
+    public function __construct(string $data, int $status = 200)
     {
         parent::__construct(
             $status,
