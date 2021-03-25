@@ -1,3 +1,4 @@
+lint-static : linter static
 linter: lint cs
 static: psalm php-stan
 
