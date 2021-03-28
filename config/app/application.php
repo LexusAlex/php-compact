@@ -6,7 +6,6 @@ use Psr\Container\ContainerInterface;
 use Slim\App;
 use Slim\Factory\AppFactory;
 use Compact\Ci\Http\Controllers;
-use Slim\Routing\RouteCollectorProxy;
 
 return static function (ContainerInterface $container): App {
     $app = AppFactory::createFromContainer($container);

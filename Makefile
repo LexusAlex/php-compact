@@ -32,6 +32,10 @@ psalm:
 	docker-compose run --rm php-cli composer psalm
 php-stan:
 	docker-compose run --rm php-cli composer phpstan
+composer-install:
+	docker-compose run --rm php-cli composer install
+composer-update:
+	docker-compose run --rm php-cli composer update
 frontend-install:
 	docker-compose run --rm node-cli yarn install
 frontend-build:

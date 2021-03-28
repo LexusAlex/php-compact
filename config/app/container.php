@@ -10,7 +10,7 @@ $builder = new ContainerBuilder();
 
 $aggregator = new ConfigAggregator([
     new PhpFileProvider(__DIR__ . '/../main/*.php'),
-    //new PhpFileProvider(__DIR__ . '/' . (getenv('PHP_COMPACT_ENV') ?: 'prod') . '/*.php'),
+    new PhpFileProvider(__DIR__ . '/' . (getenv('PHP_COMPACT_ENV') ?: 'prod') . '/../*.php'),
 ]);
 
 $builder->addDefinitions($aggregator->getMergedConfig());
