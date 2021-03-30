@@ -37,6 +37,10 @@ composer-install:
 composer-update:
 	docker-compose run --rm php-cli composer update
 frontend-install:
-	docker-compose run --rm node-cli yarn install
+	docker-compose run --rm frontend-node-cli yarn install
 frontend-build:
-	docker-compose run --rm node-cli yarn build
+	docker-compose run --rm frontend-node-cli yarn build
+frontend-clear:
+	docker run --rm -v ${PWD}/frontend:/php-compact -w /php-compact alpine sh -c 'rm -rf build'
+frontend-test:
+	docker-compose run --rm frontend-node-cli yarn test
